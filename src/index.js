@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import Pokemons from './Components/getPokemons';
-import PokemonsInfo from './Components/getPokemonInfo';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

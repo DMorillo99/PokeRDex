@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 import { Helmet } from "react-helmet";
+import Home from "./Components/home";
 
 
 class App extends Component {
@@ -21,12 +23,12 @@ class App extends Component {
 
 
     return (
-      <div>
+      <Container>
         <Helmet>
           <title>Home</title>
         </Helmet>
-        <h1>HOla mundo</h1>
-      </div>
+        <Home/>
+      </Container>
     );
   }
 }

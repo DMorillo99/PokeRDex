@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MoreInfo from "./getPokemonInfo";
 import axios from "axios";
 import "../Style/Main.css"
 import { Helmet } from 'react-helmet'
@@ -7,6 +6,8 @@ import Container from 'react-bootstrap/Container'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
+import CardGroup from 'react-bootstrap/CardGroup'
+import CardDeck from 'react-bootstrap/CardDeck'
 
 export default class Poke extends React.Component {
     state = {
@@ -35,7 +36,7 @@ export default class Poke extends React.Component {
     //Get information of PokeApi with axios 
     getData = () => {
         if (this.state.dataIdName == "") {
-            this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=1050"/* Cambiar por el valor maximo || 964||1050*/
+            this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=100"/* Cambiar por el valor maximo || 964||1050*/
             /*this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit='" + this.state.dataIdName + "'"/*964||1050*/
         } else if (this.state.dataIdName != null) {
             this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=" + this.state.dataIdName + ""/*964||1050*/
@@ -68,17 +69,16 @@ export default class Poke extends React.Component {
                 <hr />
                 {get.map(item => {
                     return (
-                        <div>
-
-                            <Card style={{ width: '14.45rem' }} className="text-center">
+                        <CardDeck style={{ width: '20.8rem', float: "left",}} className="text-center">
+                            <Card fluid>
                                 <Card.Img variant="top" src={"https://www.pkparaiso.com/imagenes/xy/sprites/animados/"
                                     + item.name
                                     + ".gif"}
-                                    height="150" 
+                                    height="150"
                                     fluid />
                                 <Card.Body>
                                     <Card.Title>{this.Capitalize(item.name)}</Card.Title>
-                                    <hr/>
+                                    <hr />
                                     <Card.Text >
                                         {/*Mostrar los tipos de pokemones*/}
                                         <PokeTypes dataFromParent={item.url} />
@@ -86,7 +86,7 @@ export default class Poke extends React.Component {
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
-                        </div>
+                        </CardDeck>
                     );
                 })}
             </Container >
@@ -177,7 +177,7 @@ class PokeTypes extends Component {
                 <br />
                 <label>Weight: {peso / 10}kg </label>
                 <br />
-                <PokeInfos datoforPokeInfo={pokeName}/>
+                <PokeInfos datoforPokeInfo={pokeName} />
             </div>
         );
     }

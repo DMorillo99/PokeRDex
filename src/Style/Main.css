@@ -38,15 +38,10 @@ body
 .navbar a.active {
   background-color: #4CAF50;
 }
+.text-center{
+  padding-left: 10px;
+  padding-bottom: 10px;
 
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 2s;
-  float: left;
-  margin-bottom: 3.5%;
-  margin-left: 3.3%;
 }
 
 .Tipos{
@@ -55,6 +50,3 @@ body
   font-size: 20px;
 }
 
-.Info{
-  margin-top: 20px;
-}

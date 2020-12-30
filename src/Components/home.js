@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import CardGroup from 'react-bootstrap/CardGroup'
 
 export default class Home extends Component {
     constructor(props) {
@@ -14,15 +15,15 @@ export default class Home extends Component {
         console.log("Minecraft");
         console.log("Love");
         return (
-            <Container fluid>
-                <Card>
+            <div>
+                <Container>
+                <Card className="mainCard">
                     <Card.Body>
                         <Card.Text style={{textAlign: 'justify'}}>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac viverra elit. Phasellus pellentesque neque ex, at vestibulum ex bibendum at. Vestibulum faucibus ligula blandit mi tincidunt, ut posuere justo eleifend. Morbi euismod ipsum eget risus fermentum, id sollicitudin ligula gravida. Suspendisse eget leo ut risus porttitor interdum a in ipsum. Etiam volutpat aliquam mauris, ultrices eleifend purus dignissim non. Aenean tellus diam, condimentum ac sem eu, convallis congue magna. Etiam ut dui fringilla, ultrices ligula eget, varius elit. Nullam a mi in erat ultricies ornare.
                         </Card.Text>
                     </Card.Body>
                 </Card>
-
                 <Card>
                     <Card.Body>
                         <Card.Title>
@@ -49,6 +50,7 @@ export default class Home extends Component {
                     </Card.Body>
                 </Card>
             </Container>
+            </div>
         );
     }
 }
