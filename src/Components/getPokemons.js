@@ -6,7 +6,6 @@ import Container from 'react-bootstrap/Container'
 import "bootstrap/dist/css/bootstrap.min.css"
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
-import CardGroup from 'react-bootstrap/CardGroup'
 import CardDeck from 'react-bootstrap/CardDeck'
 
 export default class Poke extends React.Component {
@@ -36,7 +35,7 @@ export default class Poke extends React.Component {
     //Get information of PokeApi with axios 
     getData = () => {
         if (this.state.dataIdName == "") {
-            this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=100"/* Cambiar por el valor maximo || 964||1050*/
+            this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=10"/* Cambiar por el valor maximo || 964||1050*/
             /*this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit='" + this.state.dataIdName + "'"/*964||1050*/
         } else if (this.state.dataIdName != null) {
             this.state.url = "https://pokeapi.co/api/v2/pokemon/?limit=" + this.state.dataIdName + ""/*964||1050*/
@@ -69,7 +68,7 @@ export default class Poke extends React.Component {
                 <hr />
                 {get.map(item => {
                     return (
-                        <CardDeck style={{ width: '20.8rem', float: "left",}} className="text-center">
+                        <CardDeck style={{ width: '20.8rem', float: "left",}} className="text-center">{/*Grupo de cartas*/}
                             <Card fluid>
                                 <Card.Img variant="top" src={"https://www.pkparaiso.com/imagenes/xy/sprites/animados/"
                                     + item.name
@@ -82,7 +81,6 @@ export default class Poke extends React.Component {
                                     <Card.Text >
                                         {/*Mostrar los tipos de pokemones*/}
                                         <PokeTypes dataFromParent={item.url} />
-                                        {/*Informacion basica de los pokemones*/}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>
@@ -176,51 +174,10 @@ class PokeTypes extends Component {
                 <label>Height: {(altura / 10 * 3.2808).toFixed(2)}ft </label>
                 <br />
                 <label>Weight: {peso / 10}kg </label>
-                <br />
-                <PokeInfos datoforPokeInfo={pokeName} />
             </div>
         );
     }
 }
-class PokeInfos extends React.Component {
-    state = {
-        dataSource: [],
-        index: 1
-    };
-    Capitalize(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-    componentDidMount() {
-        this.getData();
-    }
-    getData = () => {
-        /*No manda nada*/
-        axios.get("https://pokeapi.co/api/v2/pokemon-species/1/")
-            .then(data =>
-                this.setState({
-                    dataSource: data.data.flavor_text_entries
-                })
-            )
-            .catch(error => {
-                console.log(error)
-            });
-    };
-    render() {
-        const get = this.state.dataSource;
-        console.log();
-        return (
-            <div>
-                {get.map(item => {
-                    return (
-                        <div >
-                        </div>
-                    );
-                })}
-            </div>
-        );
-    }
-}
-
 
 
 

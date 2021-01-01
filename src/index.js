@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from "./Components/NavMenu";
+import Nav from "./Components/MenuF";
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
-import './index.css';
 import App from './App';
 import Pokemons from './Components/getPokemons';
 import reportWebVitals from './reportWebVitals';
